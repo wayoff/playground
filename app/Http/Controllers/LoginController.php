@@ -24,6 +24,23 @@ class LoginController extends Controller
         ])) {
             return $this->respond_success('Success', Auth::user());
         }
+
         return $this->respond_unauthorize();
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return $this->respond_success();
+    }
+
+    public function me()
+    {
+        if (Auth::check()) {
+            return $this->respond_success('Success', Auth::user());
+        }
+
+        return $this->respond_error('No User were logged');
     }
 }

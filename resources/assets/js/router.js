@@ -5,13 +5,12 @@ Vue.use(VueRouter);
 // pages
 const IndexPage = require('./pages/Index.vue');
 const LessonsPage = require('./pages/Lessons.vue');
-const Sample = require('./components/Sample.vue');
+const Categories = require('./pages/Categories.vue');
 
 const routes = [
   { path: '/', component: IndexPage },
   { path: '/lessons', component: LessonsPage },
-  { path: '/foo', component: Sample },
-  { path: '/bar', component: Sample },
+  { path: '/categories', component: Categories },
   { path: '*', redirect: '/' }
 ];
 

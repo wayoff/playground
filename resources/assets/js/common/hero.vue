@@ -53,7 +53,7 @@
 <script>
     export default {
         mounted() {
-            console.log('Hero')
+            // console.log('Hero')
         }
     }
 </script>

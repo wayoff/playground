@@ -1,37 +1,46 @@
 <template>
-  <div class="modal is-active">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Login</p>
-        <button class="delete" @click="onClickCancel"></button>
-      </header>
-      <section class="modal-card-body">
-        <form>
-          <div class="field">
-            <label class="label">E-mail</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="Enter email" v-model="email">
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Password</label>
-            <div class="control">
-              <input class="input" type="password" placeholder="Enter password" v-model="password">
-            </div>
-          </div>
-        </form>
-      </section>
-      <footer class="modal-card-foot">
-        <a class="button is-success" @click="onClickLogin">Login</a>
-        <a class="button" @click="onClickCancel">Cancel</a>
-      </footer>
-    </div>
-  </div>
+  <app-modal>
+    <app-modal-header>
+        <app-modal-title> Login </app-modal-title>
+        <app-button
+          type="delete"
+          @click="onClickCancel"
+        ></app-button>
+    </app-modal-header>
+    <app-modal-body>
+      <form>
+        <app-input
+          placeholder="Please Enter your email address"
+          label="Email"
+          type="email"
+          iconLeft="fa fa-user"
+          @value="(data) => email = data"
+        ></app-input>
+        <app-input
+          placeholder="Please Enter your password"
+          label="Password"
+          type="password"
+          iconLeft="fa fa-lock"
+          @value="(data) => password = data"
+        ></app-input>
+      </form>
+    </app-modal-body>
+    <app-modal-footer>
+        <app-button
+          type="success"
+          text="Login"
+          @click="onClickLogin"
+        ></app-button>
+        <app-button
+          text="Cancel"
+          @click="onClickCancel"
+        ></app-button>
+    </app-modal-footer>
+  </app-modal>
 </template>
 
 <script>
-  import axios from 'axios';
+  import Auth from '../services/Auth'
 
   export default {
     data() {
@@ -48,11 +57,12 @@
         this.$emit('cancel');
       },
       onClickLogin() {
-        axios.post('/api/login', {
-          email: this.email,
-          password: this.password
-        }).then( (response) => console.log(response))
-          .catch( (error) => console.log(error));
+        Auth.logIn(this.email, this.password)
+        .then( (response) => {
+          this.onClickCancel();
+          this.$store.commit('userLoggedIn', response.data.items)
+        })
+        .catch( (error) => console.log(error));
       }
     }
   }
