@@ -1,51 +1,45 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+## About Playground
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+playground is a laravel app + vuejs for the fronend that implements best practices based on my knowledge as a web developer ( backend and frontend ), it showcase how a real production app should be created.
+___
 
-## About Laravel
+##### Below are some best practices that a production app should use or should consider to use
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+* Backend
+  - [ ] Repository Pattern
+  - [ ] Gateway Pattern ( an extra service layer for your controller and your repository )
+  - [x] MVC ( Laravel provides this already )
+  - [ ] Transformer Pattern for your API JSON response
+  - [ ] View Presenter Pattern for your view pages
+  - [ ] OAuth2 
+  - [ ] Database such as;
+            * MySQL
+            * [x] SQLITE
+            * etc ( mongoDB, Postre )
+                -- Make sure to pick what's best for your app as i used SQLITE for testing purposes only
+      
+  - [ ] Web Socket for real time update
+  
+* Frontend
+  - [x] css compiler ( included in mix/elixir)
+  - [x] js compiler ( included in mix/exlisir )
+  - [x] optionally a js framework that uses 
+    -- MVC pattern
+    -- MVVM ( model-view-viewmodel )
+    -- any architecture that may lessen day to day problem such as;
+       - Component Architecture
+       - Flux, Application Architecture or
+       - Redux or
+       - Vuex
+       - Or Much better to create your own :smiley: for learning ofcourse 
+    -- note that i'am going to use Vue + Vuex for playground, I used Vuex as it is implicitly developed for Vue, any matured framework such as ReactJs + Redux that developed by Facebook maybe much suitable than Vuejs
+ 
+   - [] A web socket client for real time update
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+--- 
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
-
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](http://patreon.com/taylorotwell):
-
-- **[Vehikl](http://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Styde](https://styde.net)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+## Playground features
+ i'll probably create a simple blog or something like a CMS which will be upgraded over like creating features
+  * [ ] Real Time Update
+  * [ ] Div Mark Down Editor
+  * [ ] Chat Box
