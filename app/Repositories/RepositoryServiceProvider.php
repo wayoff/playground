@@ -4,12 +4,12 @@ namespace App\Repositories;
 
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\Contracts;
-use App\Repositories\Eloquent;
+use App\Repositories\Eloquent as Implementation;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
     protected $contracts = [
-        Contracts\BaseInterface::class => Eloquent\BaseRepository::class
+        Contracts\BaseInterface::class => Implementation\BaseRepository::class
     ];
 
     /**
