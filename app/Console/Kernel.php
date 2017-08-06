@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        \App\Transformers\Commands\TransformerMakeCommand::class,
+        \App\Gateways\Commands\GatewayMakeCommand::class,
     ];
 
     /**

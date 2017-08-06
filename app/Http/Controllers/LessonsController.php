@@ -34,7 +34,6 @@ class LessonsController extends Controller
     public function create()
     {
         return view('admin.lessons.create');
-        return view('admin.lessons.create');
     }
 
     /**

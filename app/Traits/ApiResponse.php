@@ -65,7 +65,7 @@ trait ApiResponse
      * @param  integer $status_code [status code]
      * @return [json]               [api respond]
      */
-    protected function respond_success($message = 'Success!', $data = [], $status_code = 200)
+    protected function respondSuccess($message = 'Success!', $data = [], $status_code = 200)
     {
         return $this->set_status_code($status_code)->respond_with_success($message, $data);
     }
@@ -77,7 +77,7 @@ trait ApiResponse
      * @param  integer $status_code [status code]
      * @return [json]               [api respond]
      */
-    protected function respond_warning($message = 'warning!', $data = [], $status_code = 200)
+    protected function respondWarning($message = 'warning!', $data = [], $status_code = 200)
     {
         return $this->set_status_code($status_code)->respond_with_warning($message, $data);
     }
@@ -89,7 +89,7 @@ trait ApiResponse
      * @param  integer $status_code [status code]
      * @return [json]               [api respond]
      */
-    protected function respond_created($message = 'Created', $data = [], $status_code = 201)
+    protected function respondCreated($message = 'Created', $data = [], $status_code = 201)
     {
         return $this->set_status_code($status_code)->respond_with_success($message, $data);
     }
@@ -102,10 +102,36 @@ trait ApiResponse
      * @param  integer $status_code [status code]
      * @return [json]               [api respond]
      */
-    protected function respond_accepted($message = 'Accepted', $data = [], $status_code = 202)
+    protected function respondAccepted($message = 'Accepted', $data = [], $status_code = 202)
     {
         return $this->set_status_code($status_code)->respond_with_success($message, $data);
     }
+
+    /**
+     * [respond_error set respond or use default "something went wrong"]
+     * @param  string  $message     [message to requestor]
+     * @param  array   $data        [data response]
+     * @param  integer $status_code [status code]
+     * @return [json]               [api respond]
+     */
+    protected function respondError($message = 'Something went wrong!', $data = [], $status_code = 500)
+    {
+        return $this->set_status_code($status_code)->respond_with_error($message, $data);
+    }
+
+
+    /**
+     * [respond_unauthorize set respond or use default "unauthorized"]
+     * @param  string  $message     [message to requestor]
+     * @param  array   $data        [data response]
+     * @param  integer $status_code [status code]
+     * @return [json]               [api respond]
+     */
+    protected function respondUnauthorize( $message = "Unauthorized.", $data = [], $status_code = 401)
+    {
+        return $this->set_status_code($status_code)->respond_with_error($message, $data);
+    }
+
 
 
     /**
@@ -120,33 +146,6 @@ trait ApiResponse
         $this->api_data = $data;
         return $this->respond('success');
     }
-
-
-    /**
-     * [respond_error set respond or use default "something went wrong"]
-     * @param  string  $message     [message to requestor]
-     * @param  array   $data        [data response]
-     * @param  integer $status_code [status code]
-     * @return [json]               [api respond]
-     */
-    protected function respond_error($message = 'Something went wrong!', $data = [], $status_code = 500)
-    {
-        return $this->set_status_code($status_code)->respond_with_error($message, $data);
-    }
-
-
-    /**
-     * [respond_unauthorize set respond or use default "unauthorized"]
-     * @param  string  $message     [message to requestor]
-     * @param  array   $data        [data response]
-     * @param  integer $status_code [status code]
-     * @return [json]               [api respond]
-     */
-    protected function respond_unauthorize( $message = "Unauthorized.", $data = [], $status_code = 401)
-    {
-        return $this->set_status_code($status_code)->respond_with_error($message, $data);
-    }
-
 
     /**
      * [respond_not_found set respond or use default "not found"]

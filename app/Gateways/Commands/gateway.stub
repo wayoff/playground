@@ -1,0 +1,15 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\Gateways\BaseGateway;
+
+class DummyClass extends BaseGateway
+{
+    protected $repository;
+    
+    public function __construct(Repository $repository)
+    {
+        $this->repository = $repository;
+    }
+}

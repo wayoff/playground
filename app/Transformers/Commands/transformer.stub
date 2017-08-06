@@ -1,0 +1,17 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\Transformers\BaseTransformer;
+
+class DummyClass extends BaseTransformer
+{
+
+    public function transform($item)
+    {
+        return [
+                'id' => $item->id,
+                'name' => $item->name
+        ];
+    }
+}
