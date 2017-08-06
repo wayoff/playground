@@ -10,7 +10,7 @@ ___
   - [ ] Gateway Pattern ( an extra service layer for your controller and your repository )
   - [x] MVC ( Laravel provides this already )
   - [ ] Transformer Pattern for your API JSON response
-  - [ ] View Presenter Pattern for your view pages
+  - [ ] View Presenter Pattern for your view pages ( optional )
   - [ ] OAuth2 
   - [ ] Database such as;
             * MySQL
@@ -43,3 +43,39 @@ ___
   * [ ] Real Time Update
   * [ ] Div Mark Down Editor
   * [ ] Chat Box
+
+---
+
+## Step by Step Todo
+ 0. Database
+    ** know your schema
+
+ 1. Scaffold API
+    ** API response
+    ** API transformers
+    ** API Validation Request
+    ** Implement OAuth2
+
+ 2. Scaffold Frontend
+    ** Know Folder Structures
+    ** Implement Session
+    ** Implement Middlewares
+    ** Know the stateless Component
+    ** Implement Real Time Update (Notification)
+
+
+## How will i do this
+  1) MVC 
+    * `Model` - i'll use Repository Pattern to communicate with Eloquent
+    * `View` - to render vuejs
+    * `Controller` - No Business Logic, `Responsible` for `Request, Response`
+
+  2) Gateway Pattern - `All Business Logic` and `communication` between `Controllers` and `Repositories` will be here
+  
+  3) Repository Pattern - Handles Communication between database and business logic
+      -- * note: always return an array or a Helpers\Collection and never return an Eloquent Collection *
+  
+  4) Request Validation - will use laravel own Request class to handle API validation
+  
+  5) OAuth2 - Middleware and for Secure API ( will probably implement this after everything is set, and continue to develop playground mobile app )
+
